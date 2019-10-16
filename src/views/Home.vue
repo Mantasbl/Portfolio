@@ -1,18 +1,21 @@
 <template>
   <div class="home">
-    <!--<p class="display-2 font-weight-bold text-center grey--text text--darken-3">Software Developer & Database Designer, Developer</p>
-    -->
+    <!-- <h1 class="display-2 font-weight-bold text-center grey--text text--darken-3">Software Developer & Database Designer, Developer</h1> -->
+    
+    
      <v-row class="mt-md-12" align="center"
       justify="center">
         <v-img :src="require('../assets/logo.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
     </v-row>
+    <v-row align="center" justify="center" class="header-top-image">
+      <v-img :src="require('../assets/header_top.svg')" max-width="700px" contain></v-img>
+    </v-row>
     <!-- Header introduction section -->
-    <v-row align="center" justify="center" class="mt-12 py-12 px-5 primary white--text">
-      <v-col cols="11">
+    <v-row align="center" justify="center" class=" py-12 px-5 primary white--text">
         <div class="introduction px-3" >
           <div class="introduction-title display-2 pb-12">
-            <span>Hey, I'm Mantas.</span><br/>
-            <span>I can solve</span><span class="cross-out text-"> all some one of your</span><span> problems, ok?</span><br/> 
+            <p><span>Hey, I'm Mantas.</span><br/>
+            <span>I can solve</span><span class="cross-out "> all some one of your</span><span> problems, ok?</span></p>
           </div>
           <div class="introduction-content display-1">
             <span>I design, build & sometimes maintain Software & Databases</span><br/>
@@ -20,7 +23,6 @@
             <span>Let's chat <a class="grey--text text--darken-4" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
           </div>
         </div>
-      </v-col>
     </v-row>
     <!--Skills section-->
     <v-row align="center" justify="center" class="skills">
@@ -220,6 +222,9 @@ export default {
 
  <style>
  .home {
+   margin-top: 60px;
+ }
+ .header-top-image {
    margin-top: 80px;
  }
  .cross-out {
@@ -229,7 +234,7 @@ export default {
    text-decoration: none;
  }
  .introduction{
-   padding-bottom: 200px;
+   padding: 100px 0 200px 0;
  }
  .skills{
    margin-top: -150px;
