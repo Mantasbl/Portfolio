@@ -4,31 +4,29 @@
     -->
      <v-row class="mt-md-12" align="center"
       justify="center">
-        <v-img :src="require('../assets/logo.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
+        <v-img :src="require('../assets/themeDark/logoDark.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
     </v-row>
     <!-- Header introduction section -->
-    <v-row align="center" justify="center" class="mt-12 py-12 px-5 primary white--text">
-      <v-col cols="11">
-        <div class="introduction px-3" >
-          <div class="introduction-title display-2 pb-12">
-            <span>Hey, I'm Mantas.</span><br/>
-            <span>I can solve</span><span class="cross-out text-"> all some one of your</span><span> problems, ok?</span><br/> 
-          </div>
-          <div class="introduction-content display-1">
-            <span>I design, build & sometimes maintain Software & Databases</span><br/>
-            <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
-            <span>Let's chat <a class="grey--text text--darken-4" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
-          </div>
+    <v-row align="center" justify="center" class="mt-12 py-12 px-5 secondary">
+      <div class="introduction px-3 white--text" >
+        <div class="introduction-title display-2 pb-12">
+          <span>Hey, I'm Mantas.</span><br/>
+          <span>I can solve</span><span class="cross-out blue--text text--accent-4"> all some one of your</span><span> problems, ok?</span><br/> 
         </div>
-      </v-col>
+        <div class="introduction-content display-1">
+          <span>I design, build & sometimes maintain Software & Databases</span><br/>
+          <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
+          <span>Let's chat <a class="grey--text" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
+        </div>
+      </div>
     </v-row>
     <!--Skills section-->
     <v-row align="center" justify="center" class="skills">
       <v-col cols="10" md="10" lg="9" xl="6">
-        <v-card raised class="elevation-24">
+        <v-card raised class="elevation-24" color="primary">
           <v-row class="px-12 pt-10" align="start" justify="center" >
-            <v-col cols="12" md="4" align="center" class="skill pb-12" v-for="skill in skills" :key="skill.title">
-              <v-icon color="primary" class="skill-icon">{{skill.icon}}</v-icon>
+            <v-col cols="12" md="4" align="center" class="skill pb-12 white--text" v-for="skill in skills" :key="skill.title">
+              <v-icon color="blue accent-4" class="skill-icon">{{skill.icon}}</v-icon>
               <p class="headline mt-5">{{skill.title}}</p>
               <p class="pt-6">{{skill.languagesTitle}}:</p>
               <p>{{skill.languages}}</p>
@@ -49,10 +47,10 @@
     </v-row>
     <!--Recent Work section -->
     <v-row align="center" justify="center" class="mt-12 py-12 px-5 ">
-      <div class="text-center recentWorkHeader">
+      <div class="text-center recentWorkHeader white--text">
         <p class="display-2">My Recent Work</p><br/>
         <p class="subheading">Here are a few recent projects. Want to see more?</p><br/>
-        <p class="subheading ">Visit my <a href="https://github.com/Mantasbl" target="_blank" color="primary">Github</a> page</p>
+        <p class="subheading ">Visit my <a href="https://github.com/Mantasbl" target="_blank" class="blue--text text--accent-4">Github</a> page</p>
       </div>
     </v-row>
     <v-row class="recentWork" justify="center" align="center">
@@ -64,7 +62,7 @@
                 <v-card class="mx-auto" max-width="400">
                   <v-img :src="require('../assets/Work/'+ project.title +'.png')" max-height="250px" ></v-img>
                   <v-fade-transition>
-                        <v-overlay class="work px-8" v-if="hover" align="center" absolute color="primary" opacity="0.8">
+                        <v-overlay class="work px-8" v-if="hover" align="center" absolute color="accent" opacity="0.8">
                           <p class="subheading">{{project.title}}</p>
                           <v-chip v-for="skill in project.skills" :key="skill" class="ma-1 project-chip" color="grey darken-4" label>{{skill}}</v-chip>
                           <br/>
