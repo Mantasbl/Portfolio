@@ -2,23 +2,25 @@
   <div class="home">
     <!--<p class="display-2 font-weight-bold text-center grey--text text--darken-3">Software Developer & Database Designer, Developer</p>
     -->
-     <v-row class="mt-12" align="center"
+     <v-row class="mt-md-12" align="center"
       justify="center">
-        <v-img :src="require('../assets/logo.png')" max-height="471" max-width="400"></v-img>
+        <v-img :src="require('../assets/logo.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
     </v-row>
     <!-- Header introduction section -->
-    <v-row align="center" justify="center" class="mt-12 py-12 px-5 primary">
-      <div class="introduction px-3" >
-        <div class="introduction-title display-2 pb-12">
-          <span>Hey, I'm Mantas.</span><br/>
-          <span>I can solve</span><span class="cross-out grey--text text--lighten-1"> all some one of your</span><span> problems, ok?</span><br/> 
+    <v-row align="center" justify="center" class="mt-12 py-12 px-5 primary white--text">
+      <v-col cols="11">
+        <div class="introduction px-3" >
+          <div class="introduction-title display-2 pb-12">
+            <span>Hey, I'm Mantas.</span><br/>
+            <span>I can solve</span><span class="cross-out text-"> all some one of your</span><span> problems, ok?</span><br/> 
+          </div>
+          <div class="introduction-content display-1">
+            <span>I design, build & sometimes maintain Software & Databases</span><br/>
+            <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
+            <span>Let's chat <a class="grey--text text--darken-4" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
+          </div>
         </div>
-        <div class="introduction-content display-1">
-          <span>I design, build & sometimes maintain Software & Databases</span><br/>
-          <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
-          <span>Let's chat <a class="grey--text text--lighten-1" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
-        </div>
-      </div>
+      </v-col>
     </v-row>
     <!--Skills section-->
     <v-row align="center" justify="center" class="skills">
@@ -30,13 +32,13 @@
               <p class="headline mt-5">{{skill.title}}</p>
               <p class="pt-6">{{skill.languagesTitle}}:</p>
               <p>{{skill.languages}}</p>
-              <p class="pt-12">Tools I currently use: </p>
+              <p class="pt-12">Current Toolkit: </p>
               <v-row class="skill-logo" v-for="tool in skill.tools" :key="tool" align="center" justify="center">
-                <v-col cols="4" md="4" lg="2" xl="1" class="px-0 py-2">
-                <v-img :src="require('../assets/' + tool + '.svg')" height="30" width="35" contain>
+                <v-col cols="4" sm="2" md="4" lg="2" xl="1" class="px-0 py-2">
+                <v-img :src="require('../assets/' + tool + '.svg')" height="30" max-width="50" contain>
                 </v-img>
                 </v-col>
-                <v-col cols="7" md="5" lg="3" xl="4" class="px-0 py-2">
+                <v-col cols="7" sm="4" md="5" lg="3" xl="4" class="px-0 py-2">
                   <span align="baseline">{{tool}}</span>
                 </v-col>
               </v-row>
@@ -46,15 +48,16 @@
       </v-col>
     </v-row>
     <!--Recent Work section -->
-    <p class="display-2 text-center mt-12">My Recent Work</p>
-    <p class="subheading text-center mt-12">Here are a few recent projects. Want to see more?</p>
-    <p class="subheading text-center">Visit my <a href="https://github.com/Mantasbl" target="_blank">Github</a> page</p>
-    <v-row class="mt-12" justify="center">
+    <v-row align="center" justify="center" class="mt-12 py-12 px-5 ">
+      <div class="text-center recentWorkHeader">
+        <p class="display-2">My Recent Work</p><br/>
+        <p class="subheading">Here are a few recent projects. Want to see more?</p><br/>
+        <p class="subheading ">Visit my <a href="https://github.com/Mantasbl" target="_blank" color="primary">Github</a> page</p>
+      </div>
+    </v-row>
+    <v-row class="recentWork" justify="center" align="center">
       <v-col cols="10" md="10" lg="9" xl="6">
         <v-row justify="center">
-
-
-
           <v-col cols="12" md="6" lg="4" v-for="project in projects" :key="project.title" class="project">
             <v-hover>
               <template v-slot:default="{ hover }">
@@ -62,6 +65,7 @@
                   <v-img :src="require('../assets/Work/'+ project.title +'.png')" max-height="250px" ></v-img>
                   <v-fade-transition>
                         <v-overlay class="work px-8" v-if="hover" align="center" absolute color="primary" opacity="0.8">
+                          <p class="subheading">{{project.title}}</p>
                           <v-chip v-for="skill in project.skills" :key="skill" class="ma-1 project-chip" color="grey darken-4" label>{{skill}}</v-chip>
                           <br/>
                           <br/>
@@ -114,7 +118,7 @@ export default {
             'Laravel',
             'npm',
             'Apache',
-            'Cmder'
+            'WordPress'
           ]
         },
         { 
@@ -216,7 +220,7 @@ export default {
 
  <style>
  .home {
-   margin-top: 120px;
+   margin-top: 80px;
  }
  .cross-out {
    text-decoration: line-through;
@@ -224,10 +228,10 @@ export default {
  a {
    text-decoration: none;
  }
- .introduction {
+ .introduction{
    padding-bottom: 200px;
  }
- .skills {
+ .skills{
    margin-top: -150px;
  }
  .skill-icon {
@@ -239,6 +243,16 @@ export default {
  @media only screen and (max-width: 960px) {
   .skill {
     border-bottom: 1px solid #BDBDBD;
+   }
+   .home {
+     margin-top: 20px;
+   }
+   .headerLogo {
+     height:300px;
+     width: 250px;
+   }
+   .introduction-title {
+     font-size: 2rem !important;
    }
  }
  </style>
