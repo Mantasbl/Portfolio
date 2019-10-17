@@ -5,7 +5,7 @@
     
      <v-row class="mt-md-12" align="center"
       justify="center">
-        <v-img :src="require('../assets/logo.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
+        <v-img :src="require('../assets/logoPurple.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
     </v-row>
     <v-row align="center" justify="center" class="header-top-image">
       <v-img :src="require('../assets/header_top.svg')" max-width="700px" contain></v-img>
