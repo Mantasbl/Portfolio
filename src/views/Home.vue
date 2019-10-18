@@ -5,29 +5,40 @@
     
      <v-row class="mt-md-12" align="center"
       justify="center">
-        <v-img :src="require('../assets/logo.png')" max-height="421" max-width="350" contain class="headerLogo"></v-img>
+        <v-img :src="require('../assets/logo.png')" max-height="350" max-width="300" contain class="headerLogo"></v-img>
     </v-row>
-    <v-row align="center" justify="center" class="header-top-image">
-      <v-img :src="require('../assets/header_top.svg')" max-width="700px" contain></v-img>
+    <v-row align="center" justify="center" >
+      <div>
+        <v-img :src="require('../assets/header_top.png')" class="header-top-image" max-width="700px" contain></v-img>
+      </div>
     </v-row>
     <!-- Header introduction section -->
-    <v-row align="center" justify="center" class=" py-12 px-5 primary white--text">
+    <v-row align="center" justify="center" class="py-12 px-5 introduction-row">
         <div class="introduction px-3" >
-          <div class="introduction-title display-2 pb-12">
-            <p><span>Hey, I'm Mantas.</span><br/>
-            <span>I can solve</span><span class="cross-out "> all some one of your</span><span> problems, ok?</span></p>
+          <div class="display-2 pb-12">
+            <p><span class="introduction-title">Hey, I'm Mantas.</span><br/>
+              <span class="introduction-content">
+                <span>I can solve</span>
+                  <span class="strike">
+                    <span class="fade-in one"> all</span>
+                    <span class="fade-in two"> some</span>
+                    <span class="fade-in three"> one of your</span>
+                  </span>
+                <span> problems, ok?</span>
+              </span>
+            </p>
           </div>
           <div class="introduction-content display-1">
-            <span>I design, build & sometimes maintain Software & Databases</span><br/>
+            <span>I design, build & sometimes maintain Software & Databases</span>
             <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
-            <span>Let's chat <a class="grey--text text--darken-4" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
+            <span>Let's chat <a color="primary" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
           </div>
         </div>
     </v-row>
     <!--Skills section-->
     <v-row align="center" justify="center" class="skills">
       <v-col cols="10" md="10" lg="9" xl="6">
-        <v-card raised class="elevation-24">
+        <v-card>
           <v-row class="px-12 pt-10" align="start" justify="center" >
             <v-col cols="12" md="4" align="center" class="skill pb-12" v-for="skill in skills" :key="skill.title">
               <v-icon color="primary" class="skill-icon">{{skill.icon}}</v-icon>
@@ -92,6 +103,7 @@
 export default {
   data() {
     return {
+      isActive: false,
       skills: [
         { 
           icon: 'mdi-code-tags',
@@ -216,11 +228,18 @@ export default {
     }
   },
   methods: {
-  }
+    crossOut() {
+    setTimeout(function(){
+      isActive = true;
+    }, 2000);
+    } 
+  },
+  
 }
 </script>
 
  <style>
+ /* Base styling */
  .home {
    margin-top: 60px;
  }
@@ -232,6 +251,10 @@ export default {
  }
  a {
    text-decoration: none;
+ }
+ .introduction-row {
+   border-top: 3px solid #E03400;
+   border-bottom: 3px solid #E03400;
  }
  .introduction{
    padding: 100px 0 200px 0;
@@ -245,9 +268,74 @@ export default {
  .project-chip{
    pointer-events:none;
  }
+ /* Animations */
+
+
+@keyframes strike{
+  0%   { width : 0; }
+  100% { width: 100%; }
+}
+.strike {
+  position: relative;
+}
+.strike::after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: black;
+  animation-name: strike;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; 
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1.5s;
+    -moz-animation-duration:1.5s;
+    animation-duration:1.5s;
+}
+.fade-in.one {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fade-in.two {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay:1.2s;
+  animation-delay: 1.2s;
+}
+.fade-in.three {
+  -webkit-animation-delay: 1.8s;
+  -moz-animation-delay: 1.8s;
+  animation-delay: 1.8s;
+}
+.fade-in.four {
+  -webkit-animation-delay: 2.4s;
+  -moz-animation-delay: 2.4s;
+  animation-delay: 2.4s;
+}
+ /* Media Queries */
  @media only screen and (max-width: 960px) {
-  .skill {
-    border-bottom: 1px solid #BDBDBD;
+   .skill {
+     border-bottom: 1px solid #BDBDBD;
    }
    .home {
      margin-top: 20px;
@@ -256,8 +344,22 @@ export default {
      height:300px;
      width: 250px;
    }
-   .introduction-title {
-     font-size: 2rem !important;
+   .header-top-image{
+     width:350px;
    }
+   .introduction-title {
+     font-size: 50px !important;
+  }
+  .introduction-content {
+    font-size: 34px !important;
+  }
  }
+@media only screen and (max-width: 600px) {
+.introduction-title {
+font-size: 40px !important;
+}
+.introduction-content {
+font-size: 24px !important;
+}
+}
  </style>
