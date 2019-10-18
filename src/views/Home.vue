@@ -13,9 +13,9 @@
       </div>
     </v-row>
     <!-- Header introduction section -->
-    <v-row align="center" justify="center" class="py-12 px-5 introduction-row">
+    <v-row align="center" justify="center" class="py-md-12 px-5 introduction-row">
         <div class="introduction px-3" >
-          <div class="display-2 pb-12">
+          <div class="display-2 pb-3 pb-md-12">
             <p><span class="introduction-title">Hey, I'm Mantas.</span><br/>
               <span class="introduction-content">
                 <span>I can solve</span>
@@ -28,10 +28,10 @@
               </span>
             </p>
           </div>
-          <div class="introduction-content display-1">
-            <span>I design, build & sometimes maintain Software & Databases</span>
-            <p class="mt-3">Have a project, idea or problem you'd like to discuss?</p>
-            <span>Let's chat <a color="primary" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
+          <div class="display-1">
+            <span class="introduction-content">I design, build & sometimes maintain Software & Databases</span>
+            <p class="mt-3 introduction-content">Have a project, idea or problem you'd like to discuss?</p>
+            <span class="introduction-content">Let's chat <a color="primary" href="mailto:Baltakisdev@gmail.com">Baltakisdev@gmail.com</a></span>
           </div>
         </div>
     </v-row>
@@ -74,8 +74,8 @@
           <v-col cols="12" md="6" lg="4" v-for="project in projects" :key="project.title" class="project">
             <v-hover>
               <template v-slot:default="{ hover }">
-                <v-card class="mx-auto" max-width="400">
-                  <v-img :src="require('../assets/Work/'+ project.title +'.png')" max-height="250px" ></v-img>
+                <v-card>
+                  <v-img :src="require('../assets/Work/'+ project.title +'.png')" aspect-ratio="1.6" contain></v-img>
                   <v-fade-transition>
                         <v-overlay class="work px-8" v-if="hover" align="center" absolute color="primary" opacity="0.8">
                           <p class="subheading">{{project.title}}</p>
@@ -103,7 +103,6 @@
 export default {
   data() {
     return {
-      isActive: false,
       skills: [
         { 
           icon: 'mdi-code-tags',
@@ -226,14 +225,7 @@ export default {
         },
       ],
     }
-  },
-  methods: {
-    crossOut() {
-    setTimeout(function(){
-      isActive = true;
-    }, 2000);
-    } 
-  },
+  }
   
 }
 </script>
@@ -268,6 +260,45 @@ export default {
  .project-chip{
    pointer-events:none;
  }
+
+ /* Media Queries */
+ @media only screen and (max-width: 960px) {
+   .skill {
+     border-bottom: 1px solid #BDBDBD;
+   }
+   .headerLogo {
+     max-height: 280px !important;
+     max-width: 240px !important;
+   }
+   .home {
+     margin-top: 20px;
+   }
+  .introduction{
+    padding: 40px 0 200px 0;
+  }
+   .headerLogo {
+     height:300px;
+     width: 250px;
+   }
+   .header-top-image{
+     width:350px;
+   }
+   .introduction-title {
+     font-size: 50px !important;
+  }
+  .introduction-content {
+    font-size: 34px !important;
+  }
+ }
+@media only screen and (max-width: 600px) {
+.introduction-title {
+font-size: 40px !important;
+}
+.introduction-content {
+font-size: 24px !important;
+}
+}
+
  /* Animations */
 
 
@@ -331,35 +362,5 @@ export default {
   -webkit-animation-delay: 2.4s;
   -moz-animation-delay: 2.4s;
   animation-delay: 2.4s;
-}
- /* Media Queries */
- @media only screen and (max-width: 960px) {
-   .skill {
-     border-bottom: 1px solid #BDBDBD;
-   }
-   .home {
-     margin-top: 20px;
-   }
-   .headerLogo {
-     height:300px;
-     width: 250px;
-   }
-   .header-top-image{
-     width:350px;
-   }
-   .introduction-title {
-     font-size: 50px !important;
-  }
-  .introduction-content {
-    font-size: 34px !important;
-  }
- }
-@media only screen and (max-width: 600px) {
-.introduction-title {
-font-size: 40px !important;
-}
-.introduction-content {
-font-size: 24px !important;
-}
 }
  </style>

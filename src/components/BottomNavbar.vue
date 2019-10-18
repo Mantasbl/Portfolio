@@ -1,7 +1,7 @@
 <template>
     <v-row align="center" justify="center" class="white--text primary mt-12 py-12">
         <v-col cols="10" md="10" lg="9" xl="6">
-                    <h2 class="display-1 text-center">Say Hello</h2><br/>
+                    <h2 class="display-1 text-center">Contact Me</h2><br/>
                     <div class="BottonNavSocial" align="center">
                         <v-btn class="mx-2 mb-6 mb-md-0" dark large color="primary" depressed>
                             <v-icon large>mdi-email</v-icon>
