@@ -266,6 +266,9 @@ export default {
    .skill {
      border-bottom: 1px solid #BDBDBD;
    }
+   .strike {
+     text-decoration: line-through;
+   }
    .headerLogo {
      max-height: 280px !important;
      max-width: 240px !important;
@@ -301,27 +304,28 @@ font-size: 24px !important;
 
  /* Animations */
 
-
-@keyframes strike{
-  0%   { width : 0; }
-  100% { width: 100%; }
-}
-.strike {
-  position: relative;
-}
-.strike::after {
-  content: ' ';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: black;
-  animation-name: strike;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards; 
+@media only screen and (min-width: 960px) {
+  @keyframes strike{
+    0%   { width : 0; }
+    100% { width: 100%; }
+  }
+  .strike {
+    position: relative;
+  }
+  .strike::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: black;
+    animation-name: strike;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; 
+  }
 }
 
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
