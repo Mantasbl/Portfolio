@@ -51,8 +51,8 @@
                 <v-img :src="require('../assets/' + tool + '.svg')" height="30" max-width="50" contain>
                 </v-img>
                 </v-col>
-                <v-col cols="7" sm="4" md="5" lg="3" xl="4" class="px-0 py-2">
-                  <span align="baseline">{{tool}}</span>
+                <v-col cols="7" sm="4" md="6" lg="4" xl="5" class="px-0 py-2">
+                  <span>{{tool}}</span>
                 </v-col>
               </v-row>
             </v-col>
@@ -83,7 +83,7 @@
                           <br/>
                           <br/>
                           <v-btn class="ma-1" color="grey darken-4" v-if="project.link != '' " rounded :href="project.link" target="_blank">Website</v-btn>
-                          <v-btn fab color="grey darken-4" :href="project.github" target="_blank">
+                          <v-btn fab color="grey darken-4" :href="project.github" v-if="project.github != '' " target="_blank">
                             <v-icon large>mdi-github-circle</v-icon>
                           </v-btn>
                         </v-overlay>
@@ -113,7 +113,6 @@ export default {
             'Bootstrap',
             'Bulma',
             'Material Design',
-            'VSC',
             'VueJs',
             'Vuetify',
             'jQuery'
@@ -123,10 +122,9 @@ export default {
           icon: 'mdi-settings',
           title: 'Back-End Development',
           languagesTitle: 'Jargon I mastered',
-          languages: 'PHP, C#, Python',
+          languages: 'PHP, C#, Python, MySql, NoSql',
           tools: [
             'Firebase',
-            'Github',
             'Heroku',
             'Laravel',
             'npm',
@@ -136,12 +134,14 @@ export default {
         },
         { 
           icon: 'mdi-database',
-          title: 'Database Development',
-          languagesTitle: 'Ways I store data',
-          languages: 'MySql, NoSql',
+          title: 'Software Applications',
+          languagesTitle: 'Skills worth noting',
+          languages: 'UML, CyberSecurity, Image Processing, Boolean algebra',
           tools: [
             'DBeaver',
+            'VSC',
             'MySql Workbench',
+            'Github',
             'Visio',
             'phpMyAdmin'
           ]
@@ -199,17 +199,15 @@ export default {
           github: 'https://github.com/Mantasbl/MyPuppyDen',
         },
         {
-          title: 'GymBro',
+          title: 'VarsityVintage',
           skills: [
             'HTML',
             'CSS',
-            'jQuery',
-            'PHP',
-            'localStorage',
-            'HTML5 Canvas'
+            'WordPress',
+            'PHP'
           ],
-          link: 'http://baltakisdev.com/gymbro/',
-          github: 'https://github.com/Mantasbl/GymBro',
+          link: 'http://varsityvintage.co.uk',
+          github: ''
         },
         {
           title: 'EcommerceDB',
